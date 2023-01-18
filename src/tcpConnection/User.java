@@ -1,11 +1,19 @@
 package tcpConnection;
 
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+
 import Card.Card;
 
-public class User {
+public class User implements Serializable {
 
-//	About User General Info
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	//	About User General Info
 	private String name;
 	private String surname;
 	private LocalDate dateOfBirth;
@@ -13,6 +21,10 @@ public class User {
 	private String phoneNumber;
 	private String email;
 	private String username;
+	private ArrayList<Integer> location;
+	private Integer scooterUID;
+	private Double rewards;
+	private Double balance;
 	
 	//Will be updated to more secure version
 	private String password;
@@ -24,6 +36,20 @@ public class User {
 //	For the implementation of reservation
 	private Boolean isRiding;
 	private Boolean hasPaymentInfo;
+	
+//	Variable Order Type
+	public static Byte TYPE_NAME = 0;
+	public static Byte TYPE_SURNAME = 1;
+	public static Byte TYPE_PHONE_NUMBER = 2;
+	public static Byte TYPE_BIRTHDATE = 3;
+	public static Byte TYPE_EMAIL = 4;
+	public static Byte TYPE_USERNAME = 5;
+	public static Byte TYPE_PASSWORD = 6;
+	public static Byte TYPE_TOTAL_RIDES = 7;
+	public static Byte TYPE_CARD = 8;
+	public static Byte TYPE_IS_RIDING = 9;
+	public static Byte TYPE_HAS_PAYMENT_INFO = 10;
+	
 	
 	
 	
@@ -42,9 +68,24 @@ public class User {
 		
 		this.hasPaymentInfo = false;
 		this.isRiding = false;
+		this.totalRides = 0;
+		this.location = new ArrayList<>();
+		this.location.add(0);location.add(0);
+		
+		this.rewards = 0.;
+		this.balance = 0.;
 	}
 	
-	public User() {}
+	public User() {
+		this.hasPaymentInfo = false;
+		this.isRiding = false;
+		this.totalRides = 0;
+		this.rewards = 0.;
+		this.balance = 0.;
+		
+		this.location = new ArrayList<>();
+		this.location.add(0);this.location.add(0);
+	}
 
 
 
@@ -105,6 +146,7 @@ public class User {
 
 	public void setCard(Card card) {
 		this.card = card;
+		this.hasPaymentInfo = true;
 	}
 
 	public Boolean getIsRiding() {
@@ -119,6 +161,51 @@ public class User {
 	public void setHasPaymentInfo(Boolean hasPaymentInfo) {
 		this.hasPaymentInfo = hasPaymentInfo;
 	}
+
+	public ArrayList<Integer> getLocation() {
+		return location;
+	}
+
+	public void setLocation(ArrayList<Integer> location) {
+		this.location = location;
+	}
+
+	public Integer getScooterUID() {
+		return scooterUID;
+	}
+
+	public void setScooterUID(Integer scooterUID) {
+		this.scooterUID = scooterUID;
+	}
+
+	public Double getRewards() {
+		return rewards;
+	}
+
+	public void setRewards(Double rewards) {
+		this.rewards = rewards;
+	}
+
+	public Double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Double balance) {
+		this.balance = balance;
+	}
+
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", surname=" + surname + ", dateOfBirth=" + dateOfBirth + ", totalRides="
+				+ totalRides + ", phoneNumber=" + phoneNumber + ", email=" + email + ", username=" + username
+				+ ", location=" + location + ", scooterUID=" + scooterUID + ", rewards=" + rewards + ", balance="
+				+ balance + ", password=" + password + ", card=" + card + ", isRiding=" + isRiding + ", hasPaymentInfo="
+				+ hasPaymentInfo + "]";
+	}
+
+	
+	
+	
 	
 	
 	

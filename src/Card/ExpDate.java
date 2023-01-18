@@ -1,6 +1,12 @@
 package Card;
 
-public class ExpDate {
+import java.io.Serializable;
+
+public class ExpDate implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private byte month;
 	private int year;
 	

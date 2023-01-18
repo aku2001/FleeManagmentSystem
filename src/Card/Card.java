@@ -1,7 +1,13 @@
 package Card;
 
-public class Card {
+import java.io.Serializable;
+
+public class Card implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private long cardNumber;
 	private short cardCVV;
 	private ExpDate cardExpDate;
@@ -62,16 +68,17 @@ public class Card {
 		byte i;
 		byte value;
 		short total = 0;
-		
+		String[] splitNumber;
 		//	Reverse Card Order
 		strBuilder.append(strCardNumber);
 		strBuilder.reverse();
 		reversedCardNumber = strBuilder.toString();
+		splitNumber = reversedCardNumber.split("") ;
 		
 		// Apply Luhn Algorithm
 		for(i=0;i<cardNumberLength;i++) {
 			
-			value = (byte) reversedCardNumber.charAt(i);
+			value = Byte.parseByte(splitNumber[i]);
 			
 			// For every odd digit double it and make sure it is 1 digit long 			
 			if(i%2 != 0) {
