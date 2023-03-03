@@ -1,3 +1,6 @@
+FLEE MANAGMENT SYSTEM
+
+
 1. Introduction
 This project aims to implement a flee management platform for electric scooters. It is required to make 
 the project in Java while using sockets and threads for communication and concurrency. The project 
@@ -9,7 +12,8 @@ information and save the information inside a database or a local storage unit. 
 provide an interface to communicate with the user and send the relevant information to the server. For 
 the communication, the app is using TCP.
 
-    1.1 Compiling and Requires Libraries:
+    1.1 Compiling and Required Libraries:
+    
 The project is compiled with JavaSE-18 (jdk-18.0.1.1) by Eclipse. For communiation java.io, and java.net 
 library is utilized. java.time and java.util is also used to create the project.
 
