@@ -13,9 +13,9 @@ provide an interface to communicate with the user and send the relevant informat
 the communication, the app is using TCP.
 
     1.1 Compiling and Required Libraries:
-    
-The project is compiled with JavaSE-18 (jdk-18.0.1.1) by Eclipse. For communiation java.io, and java.net 
-library is utilized. java.time and java.util is also used to create the project.
+
+    The project is compiled with JavaSE-18 (jdk-18.0.1.1) by Eclipse. For communiation java.io, and java.net 
+    library is utilized. java.time and java.util is also used to create the project.
 
 2. Functionalities of The System
 
